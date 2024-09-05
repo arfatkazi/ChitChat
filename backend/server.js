@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
 import authRoutes from "./routes/auth.Routes.js"
 import messageRoutes from "./routes/message.Routes.js"
+import userRoutes from "./routes/user.Routes.js"
 import connectDB from "./config/db.js"
 const app = express()
 const port = process.env.PORT || 5000
@@ -16,6 +17,7 @@ app.use(cookieParser())
 //Defining routes
 app.use("/api/auth", authRoutes)
 app.use("/api/messages", messageRoutes)
+app.use("/api/users", userRoutes)
 
 //  default local routes
 app.get("/", (req, res) => {
