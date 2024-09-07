@@ -4,7 +4,17 @@ import Message from "./Message"
 const Messages = () => {
 	return (
 		<>
-			<div className="py-4 flex-1 overflow-auto">
+			<div className="py-4 flex-1 overflow-auto custom-scrollbar">
+				<Message />
+				<Message />
+				<Message />
+				<Message />
+				<Message />
+				<Message />
+				<Message />
+				<Message />
+				<Message />
+				<Message />
 				<Message />
 				<Message />
 				<Message />

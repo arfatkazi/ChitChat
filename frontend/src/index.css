@@ -12,20 +12,26 @@ body {
 	background-attachment: fixed;
 }
 
-/* dark mode looking scrollbar */
-::-webkit-scrollbar {
+/* Custom dark mode scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
 	width: 8px;
 }
 
-::-webkit-scrollbar-track {
-	background: #555;
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: #555; /* Darker track for dark mode */
 }
 
-::-webkit-scrollbar-thumb {
-	background: #121212;
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	background: #121212; /* Darker thumb for dark mode */
 	border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-	background: #242424;
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #242424; /* Slightly lighter thumb on hover */
+}
+
+/* Firefox scrollbar styles */
+.custom-scrollbar {
+	scrollbar-width: thin; /* "auto" or "thin" */
+	scrollbar-color: #121212 #555; /* thumb color and track color */
 }
