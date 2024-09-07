@@ -20,7 +20,7 @@ const SignUp = () => {
 							<input
 								type="text"
 								placeholder="Full Name"
-								className="w-full input input-bordered  h-8 mt-2 mb-2 p-2 rounded-md"
+								className="w-full  pl-3 input-bordered  h-10 mt-2 mb-2 p-2 rounded-md"
 							/>
 						</div>
 
@@ -33,7 +33,7 @@ const SignUp = () => {
 							<input
 								type="text"
 								placeholder="Username"
-								className="w-full input input-bordered h-10 mt-2 mb-2 p-2 rounded-md"
+								className="w-full  pl-3 input-bordered  h-10 mt-2 mb-2 p-2 rounded-md"
 							/>
 						</div>
 
@@ -46,7 +46,7 @@ const SignUp = () => {
 							<input
 								type="password"
 								placeholder="Password"
-								className="w-full input input-bordered h-10 mt-2 mb-2 p-2 rounded-md"
+								className="w-full  pl-3 input-bordered  h-10 mt-2 mb-2 p-2 rounded-md"
 							/>
 						</div>
 
@@ -59,7 +59,7 @@ const SignUp = () => {
 							<input
 								type="password"
 								placeholder="Confirm Password"
-								className="w-full input input-bordered h-10 mt-2 mb-2 p-2 rounded-md"
+								className="w-full  pl-3 input-bordered  h-10 mt-2 mb-2 p-2 rounded-md"
 							/>
 						</div>
 
