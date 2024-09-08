@@ -11,6 +11,15 @@ const SignUp = () => {
 		gender: "",
 	})
 
+	const handleCheckBoxChange = (gender) => {
+		setInputs({ ...inputs, gender })
+	}
+
+	const handleInputChange = (e) => {
+		const { name, value } = e.target
+		setInputs((prevInputs) => ({ ...prevInputs, [name]: value }))
+	}
+
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		console.log(inputs)
@@ -33,12 +42,11 @@ const SignUp = () => {
 							</label>
 							<input
 								type="text"
+								name="fullName"
 								placeholder="Full Name"
 								className="w-full  pl-3 input-bordered  h-10 mt-2 mb-2 p-2 rounded-md"
 								value={inputs.fullName}
-								onChange={(e) =>
-									setInputs({ ...inputs, fullName: e.target.value })
-								}
+								onChange={handleInputChange}
 							/>
 						</div>
 
@@ -50,12 +58,11 @@ const SignUp = () => {
 							</label>
 							<input
 								type="text"
+								name="userName"
 								placeholder="Username"
 								className="w-full  pl-3 input-bordered  h-10 mt-2 mb-2 p-2 rounded-md"
 								value={inputs.userName}
-								onChange={(e) =>
-									setInputs({ ...inputs, userName: e.target.value })
-								}
+								onChange={handleInputChange}
 							/>
 						</div>
 
@@ -67,12 +74,11 @@ const SignUp = () => {
 							</label>
 							<input
 								type="password"
+								name="password"
 								placeholder="Password"
 								className="w-full  pl-3 input-bordered  h-10 mt-2 mb-2 p-2 rounded-md"
 								value={inputs.password}
-								onChange={(e) =>
-									setInputs({ ...inputs, password: e.target.value })
-								}
+								onChange={handleInputChange}
 							/>
 						</div>
 
@@ -84,16 +90,18 @@ const SignUp = () => {
 							</label>
 							<input
 								type="password"
+								name="ConfirmPassword"
 								placeholder="Confirm Password"
 								className="w-full  pl-3 input-bordered  h-10 mt-2 mb-2 p-2 rounded-md"
 								value={inputs.confirmPassword}
-								onChange={(e) =>
-									setInputs({ ...inputs, confirmPassword: e.target.value })
-								}
+								onChange={handleInputChange}
 							/>
 						</div>
 
-						<GenderCheckbox />
+						<GenderCheckbox
+							onCheckBoxChange={handleCheckBoxChange}
+							selectedGender={inputs.gender}
+						/>
 
 						<Link
 							className="text-sm hover:underline transition-all hover:text-sky-200 mt-2 inline-block text-white"
