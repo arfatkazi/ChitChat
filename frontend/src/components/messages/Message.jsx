@@ -2,7 +2,7 @@ import React from "react"
 
 const Message = () => {
 	return (
-		<div className="chat chat-end flex flex-col items-end p-2 max-w-full sm:max-w-lg md:max-w-xl lg:max-w-7xl">
+		<div className="chat chat-end flex flex-col items-end p-2 max-w-full sm:max-w-lg md:max-w-xl lg:max-w-full pr-28">
 			<div className="chat-image avatar">
 				<div className="w-8 sm:w-10 md:w-12 lg:w-14 rounded-full overflow-hidden">
 					<img
