@@ -1,12 +1,14 @@
 import React from "react"
 import { BiLogOut } from "react-icons/bi"
+
 const LogoutButton = () => {
 	return (
-		<>
-			<div className="mt-auto ">
-				<BiLogOut className="w-6 h-6 text-white cursor-pointer mt-9" />
-			</div>
-		</>
+		<div className="mt-auto flex justify-center sm:justify-start p-2">
+			<button className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-full py-2 px-4 transition duration-200">
+				<BiLogOut className="w-5 h-5 sm:w-6 sm:h-6" />
+				<span className="hidden sm:inline">Logout</span>
+			</button>
+		</div>
 	)
 }
 

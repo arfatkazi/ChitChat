@@ -6,10 +6,12 @@ import { TbMessagePlus } from "react-icons/tb"
 const NoChatSelected = () => {
 	return (
 		<div className="flex items-center justify-center w-full h-full">
-			<div className="px-4 text-center sm:text-lg text-gray-200 font-semibold flex flex-col items-center gap-2">
+			<div className="px-4 text-center sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-semibold flex flex-col items-center gap-2">
 				<p className="">ChatApp for EveryBody</p>
-				<p>select a chat to start messaging</p>
-				<TbMessagePlus className="mt-5" />
+				<p className="text-sm sm:text-base md:text-lg lg:text-xl">
+					Select a chat to start messaging
+				</p>
+				<TbMessagePlus className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl" />
 			</div>
 		</div>
 	)
@@ -18,8 +20,8 @@ const NoChatSelected = () => {
 const MessageContainer = () => {
 	const isNoChatSelected = true
 	return (
-		<div className="md:min-w-[75vw] flex flex-col">
-			{isNoChatSelected ? (
+		<div className="flex flex-col w-full h-full md:min-w-[75vw]">
+			{!isNoChatSelected ? (
 				<NoChatSelected />
 			) : (
 				<>
