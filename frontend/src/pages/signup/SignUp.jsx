@@ -115,8 +115,15 @@ const SignUp = () => {
 						</Link>
 
 						<div>
-							<button className="bg-blue-500 mt-5 px-5 py-1 ml-28 rounded-sm transition-all text-white hover:bg-sky-400 hover:shadow-md">
-								Sign Up
+							<button
+								className="bg-blue-500 mt-5 px-5 py-1 ml-28 rounded-sm transition-all text-white hover:bg-sky-400 hover:shadow-md"
+								disabled={loading}
+							>
+								{loading ? (
+									<span className="loading loading-spinner"></span>
+								) : (
+									"Sign Up"
+								)}
 							</button>
 						</div>
 					</form>
