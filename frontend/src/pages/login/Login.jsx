@@ -1,37 +1,15 @@
 import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { toast } from "react-hot-toast"
+import { Link } from "react-router-dom"
+import useLogin from "../../hooks/useLogin"
 
 const Login = () => {
 	const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("")
-	const [loading, setLoading] = useState(false)
-	const navigate = useNavigate()
+	const { loading, login } = useLogin()
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
-		setLoading(true)
-
-		try {
-			const res = await fetch("/api/auth/login", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ username, password }),
-			})
-			if (!res.ok) {
-				const errorData = await res.json()
-				throw new Error(errorData.message || "login failed")
-			}
-
-			const data = await res.json()
-			localStorage.setItem("chat-user", JSON.stringify(data))
-			toast.success("login successfully")
-			navigate("/")
-		} catch (error) {
-			toast.error(error.message)
-		} finally {
-			setLoading(false)
-		}
+		await login({ username, password })
 	}
 	return (
 		<>

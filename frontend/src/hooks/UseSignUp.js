@@ -9,7 +9,7 @@ const handleInputError = ({
 	gender,
 }) => {
 	if (!fullName || !username || !password || !confirmPassword || !gender) {
-		toast.error("Please fill  in all field")
+		toast.error("Please fill  in all fields")
 		return false
 	}
 	if (password !== confirmPassword) {
