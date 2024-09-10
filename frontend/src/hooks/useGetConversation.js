@@ -9,7 +9,7 @@ const useGetConversation = () => {
 		const getConversations = async () => {
 			setLoading(true)
 			try {
-				const res = await fetch("/api/users", { signal: controller.signal }) // it get request so no any method post body
+				const res = await fetch("/api/users", { signal: controller.signal }) // it get request so no any method, post, body
 				const data = await res.json()
 				if (data.error) {
 					throw new Error(data.error)

@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Messages from "./Messages"
 import MessagesInput from "./MessagesInput"
 import { TbMessagePlus } from "react-icons/tb"
-
+import useConversation from "../../zustand/useConversation"
 const NoChatSelected = () => {
 	return (
 		<div className="flex items-center justify-center w-full h-full">
@@ -18,17 +18,24 @@ const NoChatSelected = () => {
 }
 
 const MessageContainer = () => {
-	const isNoChatSelected = true
+	const { selectedConversation, setSelectedConversation } = useConversation()
+
+	useEffect(() => {
+		// cleanup  function ummount
+		return () => setSelectedConversation(null)
+	}, [setSelectedConversation])
 	return (
 		<div className="flex flex-col w-full h-full md:min-w-[75vw]">
-			{isNoChatSelected ? (
+			{!selectedConversation ? (
 				<NoChatSelected />
 			) : (
 				<>
 					{/* Header */}
 					<div className="bg-slate-500 px-4 py-2 mb-2">
 						<span className="label-text">To: </span>
-						<span className="text-gray-900 font-bold ml-1">Furkan</span>
+						<span className="text-gray-900 font-bold ml-1">
+							{selectedConversation.fullName}
+						</span>
 					</div>
 					<Messages />
 					<MessagesInput />

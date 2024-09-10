@@ -33,7 +33,7 @@ export const sendMessage = async (req, res) => {
 			// await conversation.save()  Save the updated conversation
 		}
 
-		await promise.all([await conversation.save(), await newMessage.save()])
+		await promise.all([conversation.save(), newMessage.save()])
 		return res.status(201).json(newMessage)
 	} catch (error) {
 		console.log(`Error sendmessage controller:`, error.message)
@@ -53,11 +53,11 @@ export const getMessages = async (req, res) => {
 		}).populate("messages")
 
 		if (!conversation) {
-			return res.status(200).json([])
+			return res.status(404).json([])
 		}
 		const messages = conversation.messages
 
-		return res.status(201).json(messages)
+		return res.status(200).json(messages)
 	} catch (error) {
 		console.log(`Error getMessage controller:`, error.message)
 		return res.status(500).json({ error: `Internal getMessage server error` })
