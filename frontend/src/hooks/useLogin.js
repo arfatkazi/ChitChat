@@ -6,9 +6,8 @@ const handleInputErrors = ({ username, password }) => {
 	if (!username || !password) {
 		toast.error("Please fill  in all fields")
 		return false
-	} else {
-		return true
 	}
+	return true
 }
 
 const useLogin = () => {

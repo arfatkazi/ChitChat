@@ -10,7 +10,7 @@ const LogoutButton = () => {
 			<button
 				onClick={logout}
 				disabled={loading}
-				className={`flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-full py-2 px-4 transition duration-200 ${
+				className={`flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-full py-2 mt-8 px-4 transition duration-200 ${
 					loading ? "opacity-50 cursor-not-allowed" : ""
 				}`}
 			>
