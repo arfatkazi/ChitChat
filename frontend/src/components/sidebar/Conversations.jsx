@@ -5,7 +5,7 @@ import { getRandomEmoji } from "../../utils/emojis.js"
 
 const Conversations = () => {
 	const { loading, conversations, error } = useGetConversations()
-	console.log("Conversation : ", conversations)
+	// console.log("Conversation : ", conversations)
 	if (loading) {
 		return <span className="loading loading-spinner mx-auto"></span>
 	}

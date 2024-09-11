@@ -8,6 +8,16 @@ const useSendMessage = () => {
 
 	const sendMessage = useCallback(
 		async (message) => {
+			if (!selectedConversation) {
+				toast.error("No conversation selected.")
+				return
+			}
+
+			if (!message.trim()) {
+				toast.error("Message cannot be empty.")
+				return
+			}
+
 			setLoading(true)
 			try {
 				const res = await fetch(
@@ -18,13 +28,16 @@ const useSendMessage = () => {
 						body: JSON.stringify({ message }),
 					}
 				)
-				const data = await res.json()
-				if (data.error) {
-					throw new Error(data.error)
+
+				if (!res.ok) {
+					const errorData = await res.json()
+					throw new Error(errorData.error || "Failed to send message.")
 				}
-				setMessages([...messages, data])
+
+				const data = await res.json()
+				setMessages((prevMessages) => [...prevMessages, data]) // Functional state update
 			} catch (error) {
-				toast.error(error.message)
+				toast.error(error.message || "An unknown error occurred.")
 			} finally {
 				setLoading(false)
 			}
