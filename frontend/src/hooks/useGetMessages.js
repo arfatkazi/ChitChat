@@ -7,6 +7,10 @@ const useGetMessages = () => {
 	const { messages, setMessages, selectedConversation } = useConversation()
 
 	useEffect(() => {
+		console.log(
+			"Fetching messages for conversation ID:",
+			selectedConversation?._id
+		)
 		const getMessages = async () => {
 			setLoading(true)
 			try {

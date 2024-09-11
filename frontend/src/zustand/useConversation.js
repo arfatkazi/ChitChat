@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { persist } from "zustand/middleware"
+import { createJSONStorage, persist } from "zustand/middleware"
 
 const useConversation = create(
 	persist(
@@ -18,7 +18,7 @@ const useConversation = create(
 		}),
 		{
 			name: "conversation-storage", // unique name
-			getStorage: () => localStorage, // default is localStorage
+			storage: createJSONStorage(() => localStorage), // default is localStorage
 		}
 	)
 )

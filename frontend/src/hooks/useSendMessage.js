@@ -35,14 +35,15 @@ const useSendMessage = () => {
 				}
 
 				const data = await res.json()
-				setMessages((prevMessages) => [...prevMessages, data]) // Functional state update
+				// 	setMessages([...messages, data]) Functional state update
+				setMessages((prevMessages) => [...prevMessages, data])
 			} catch (error) {
 				toast.error(error.message || "An unknown error occurred.")
 			} finally {
 				setLoading(false)
 			}
 		},
-		[selectedConversation, setMessages]
+		[selectedConversation, setMessages] // no need to add messages
 	)
 
 	return { sendMessage, loading }
