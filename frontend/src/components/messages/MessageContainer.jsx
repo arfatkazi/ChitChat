@@ -1,68 +1,60 @@
-import { useEffect } from "react";
-import useConversation from "../../zustand/useConversation";
-import MessageInput from "./MessageInput";
-import Messages from "./Messages";
-import { TiMessages } from "react-icons/ti";
-import { useAuthContext } from "../../context/AuthContext";
+import { useEffect } from "react"
+import useConversation from "../../zustand/useConversation"
+import MessageInput from "./MessageInput"
+import Messages from "./Messages"
+import { TiMessages } from "react-icons/ti"
+import { useAuthContext } from "../../context/AuthContext"
 
 const MessageContainer = () => {
-	const { selectedConversation, setSelectedConversation } = useConversation();
+	const { selectedConversation, setSelectedConversation } = useConversation()
 
 	useEffect(() => {
 		// cleanup function (unmounts)
-		return () => setSelectedConversation(null);
-	}, [setSelectedConversation]);
+		return () => setSelectedConversation(null)
+	}, [setSelectedConversation])
 
 	return (
-		<div className='md:min-w-[450px] flex flex-col'>
+		<div className="flex flex-col h-full w-full bg-white dark:bg-gray-800 border-l border-gray-300 dark:border-gray-700">
 			{!selectedConversation ? (
 				<NoChatSelected />
 			) : (
 				<>
 					{/* Header */}
-					<div className='bg-slate-500 px-4 py-2 mb-2'>
-						<span className='label-text'>To:</span>{" "}
-						<span className='text-gray-900 font-bold'>{selectedConversation.fullName}</span>
+					<div className="bg-gray-500 text-white px-4 py-2 flex items-center justify-between border-b border-gray-300 dark:border-gray-700">
+						<span className="text-sm sm:text-base">To:</span>{" "}
+						<span className="text-lg sm:text-xl font-bold">
+							{selectedConversation.fullName}
+						</span>
 					</div>
-					<Messages />
-					<MessageInput />
+					{/* Messages */}
+					<div className="flex-grow overflow-auto p-4">
+						<Messages />
+					</div>
+					{/* Message Input */}
+					<div className="p-4 bg-gray-100 dark:bg-gray-900 border-t border-gray-300 dark:border-gray-700">
+						<MessageInput />
+					</div>
 				</>
 			)}
 		</div>
-	);
-};
-export default MessageContainer;
+	)
+}
 
 const NoChatSelected = () => {
-	const { authUser } = useAuthContext();
+	const { authUser } = useAuthContext()
 	return (
-		<div className='flex items-center justify-center w-full h-full'>
-			<div className='px-4 text-center sm:text-lg md:text-xl text-gray-200 font-semibold flex flex-col items-center gap-2'>
-				<p>Welcome 👋 {authUser.fullName} ❄</p>
-				<p>Select a chat to start messaging</p>
-				<TiMessages className='text-3xl md:text-6xl text-center' />
+		<div className="flex flex-col items-center justify-center h-full p-4 text-center">
+			<div className="flex flex-col items-center gap-2">
+				<p className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200">
+					Welcome 👋 {authUser.fullName} ❄
+				</p>
+				<p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400">
+					Select a chat to start messaging
+				</p>
+				<TiMessages className="text-3xl sm:text-4xl md:text-5xl text-gray-600 dark:text-gray-400" />
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-// STARTER CODE SNIPPET
-// import MessageInput from "./MessageInput";
-// import Messages from "./Messages";
-
-// const MessageContainer = () => {
-// 	return (
-// 		<div className='md:min-w-[450px] flex flex-col'>
-// 			<>
-// 				{/* Header */}
-// 				<div className='bg-slate-500 px-4 py-2 mb-2'>
-// 					<span className='label-text'>To:</span> <span className='text-gray-900 font-bold'>John doe</span>
-// 				</div>
-
-// 				<Messages />
-// 				<MessageInput />
-// 			</>
-// 		</div>
-// 	);
-// };
-// export default MessageContainer;
+export default MessageContainer
