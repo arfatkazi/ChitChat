@@ -1,37 +1,39 @@
-import React from "react"
-import Conversation from "./Conversation"
-import useGetConversations from "../../hooks/useGetConversation"
-import { getRandomEmoji } from "../../utils/emojis.js"
+import useGetConversations from "../../hooks/useGetConversations";
+import { getRandomEmoji } from "../../utils/emojis";
+import Conversation from "./Conversation";
 
 const Conversations = () => {
-	const { loading, conversations, error } = useGetConversations()
-	// console.log("Conversation : ", conversations)
-	if (loading) {
-		return <span className="loading loading-spinner mx-auto"></span>
-	}
-
-	if (error) {
-		return (
-			<p className="text-red-500 mx-auto">
-				Failed to load conversations. Please try again later.
-			</p>
-		)
-	}
+	const { loading, conversations } = useGetConversations();
 	return (
-		<div className="py-2 flex flex-col gap-2 overflow-y-auto h-full custom-scrollbar">
-			{conversations.map((conversation, index) => (
+		<div className='py-2 flex flex-col overflow-auto'>
+			{conversations.map((conversation, idx) => (
 				<Conversation
 					key={conversation._id}
 					conversation={conversation}
 					emoji={getRandomEmoji()}
-					lastIndex={index === conversation.length - 1}
+					lastIdx={idx === conversations.length - 1}
 				/>
 			))}
-			{loading ? (
-				<span className="loading loading-spinner mx-auto"></span>
-			) : null}
-		</div>
-	)
-}
 
-export default Conversations
+			{loading ? <span className='loading loading-spinner mx-auto'></span> : null}
+		</div>
+	);
+};
+export default Conversations;
+
+// STARTER CODE SNIPPET
+// import Conversation from "./Conversation";
+
+// const Conversations = () => {
+// 	return (
+// 		<div className='py-2 flex flex-col overflow-auto'>
+// 			<Conversation />
+// 			<Conversation />
+// 			<Conversation />
+// 			<Conversation />
+// 			<Conversation />
+// 			<Conversation />
+// 		</div>
+// 	);
+// };
+// export default Conversations;

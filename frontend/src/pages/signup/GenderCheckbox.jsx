@@ -1,40 +1,50 @@
-import React from "react"
-
-const GenderCheckbox = ({ onCheckBoxChange, selectedGender }) => {
+const GenderCheckbox = ({ onCheckboxChange, selectedGender }) => {
 	return (
-		<div className="flex mt-2 mb-1">
-			<div className="form-control flex justify-center items-center">
-				<label
-					className={`label gap-2 cursor-pointer ${
-						selectedGender === "male" ? "selected" : ""
-					}`}
-				>
-					<span className="mr-2 text-white">Male</span>
+		<div className='flex'>
+			<div className='form-control'>
+				<label className={`label gap-2 cursor-pointer ${selectedGender === "male" ? "selected" : ""} `}>
+					<span className='label-text'>Male</span>
 					<input
-						type="checkbox"
-						className="checkbox border-slate-900"
+						type='checkbox'
+						className='checkbox border-slate-900'
 						checked={selectedGender === "male"}
-						onChange={() => onCheckBoxChange("male")}
+						onChange={() => onCheckboxChange("male")}
 					/>
 				</label>
 			</div>
-			<div className="form-control flex justify-center items-center">
-				<label
-					className={`label gap-2 cursor-pointer ml-3 ${
-						selectedGender === "female" ? "selected" : ""
-					}`}
-				>
-					<span className="text-white">Female</span>
+			<div className='form-control'>
+				<label className={`label gap-2 cursor-pointer  ${selectedGender === "female" ? "selected" : ""}`}>
+					<span className='label-text'>Female</span>
 					<input
-						type="checkbox"
-						className="checkbox border-slate-900"
+						type='checkbox'
+						className='checkbox border-slate-900'
 						checked={selectedGender === "female"}
-						onChange={() => onCheckBoxChange("female")}
+						onChange={() => onCheckboxChange("female")}
 					/>
 				</label>
 			</div>
 		</div>
-	)
-}
+	);
+};
+export default GenderCheckbox;
 
-export default GenderCheckbox
+// STARTER CODE FOR THIS FILE
+// const GenderCheckbox = () => {
+// 	return (
+// 		<div className='flex'>
+// 			<div className='form-control'>
+// 				<label className={`label gap-2 cursor-pointer`}>
+// 					<span className='label-text'>Male</span>
+// 					<input type='checkbox' className='checkbox border-slate-900' />
+// 				</label>
+// 			</div>
+// 			<div className='form-control'>
+// 				<label className={`label gap-2 cursor-pointer`}>
+// 					<span className='label-text'>Female</span>
+// 					<input type='checkbox' className='checkbox border-slate-900' />
+// 				</label>
+// 			</div>
+// 		</div>
+// 	);
+// };
+// export default GenderCheckbox;

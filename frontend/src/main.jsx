@@ -1,19 +1,19 @@
-import React from "react"
-import ReactDOM from "react-dom/client" // Import ReactDOM from react-dom/client
-import { BrowserRouter } from "react-router-dom" // Import BrowserRouter for routing
-import App from "./App.jsx"
-import "./index.css"
-import { AuthContextProvider } from "./context/AuthContext.jsx"
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import { AuthContextProvider } from "./context/AuthContext.jsx";
+import { SocketContextProvider } from "./context/SocketContext.jsx";
 
-// Create the root element using ReactDOM.createRoot
-const root = ReactDOM.createRoot(document.getElementById("root"))
-
-root.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<AuthContextProvider>
-				<App />
+				<SocketContextProvider>
+					<App />
+				</SocketContextProvider>
 			</AuthContextProvider>
 		</BrowserRouter>
 	</React.StrictMode>
-)
+);
