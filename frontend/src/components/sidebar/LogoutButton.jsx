@@ -8,7 +8,7 @@ const LogoutButton = () => {
 		<div className="mt-auto">
 			<button
 				onClick={logout}
-				className="flex items-center justify-center p-2 bg-blue-600 text-white rounded-full shadow-md transition-transform transform hover:scale-105 active:scale-95 disabled:opacity-50"
+				className="flex items-center justify-center p-2 mt-2 bg-blue-600 text-white rounded-full shadow-md transition-transform transform hover:scale-105 active:scale-95 disabled:opacity-50"
 				disabled={loading}
 			>
 				{!loading ? (
