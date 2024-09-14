@@ -2,7 +2,7 @@ import { useState } from "react"
 import toast from "react-hot-toast"
 import { useAuthContext } from "../context/AuthContext"
 
-const useSignup = () => {
+const useSignUp = () => {
 	const [loading, setLoading] = useState(false)
 	const { setAuthUser } = useAuthContext()
 
@@ -77,4 +77,4 @@ function handleInputErrors({
 	return true
 }
 
-export default useSignup
+export default useSignUp
